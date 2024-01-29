@@ -31,9 +31,9 @@ services:
     command: >
       bash -c "python manage.py makemigrations
       && python manage.py migrate
-      && python manage.py runserver 0.0.0.0:8000"
+      && python manage.py runserver 0.0.0.0:8003"
     ports:
-      - '8003:8000'
+      - '8003:8003'
     env_file:
       - ./admin/.env.docker
     depends_on:
@@ -44,9 +44,9 @@ services:
     build: ./api
     tty: true
     command: >
-      bash -c "uvicorn main:app --reload --port 8000 --host 0.0.0.0"
+      bash -c "uvicorn main:app --reload --port 8002 --host 0.0.0.0"
     ports:
-      - '8002:8000'
+      - '8002:8002'
     env_file:
       - ./api/.env.docker
     depends_on:
