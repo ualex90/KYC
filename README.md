@@ -41,7 +41,7 @@ POSTGRES_PORT='5432'
 
 DJANGO_ADMIN_EMAIL='django-admin@kyc.pro'
 DJANGO_ADMIN_PASSWORD='123qwe'
-API_URL='http://127.0.0.1:8002'
+API_URL='http://api:8002'
 ```
 5. Для первого запуска необходимо собрать образ контейнера. Для этого, находясь в корневой директории проекта
 необходимо выполнить команду:
