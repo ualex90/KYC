@@ -8,8 +8,8 @@ def file_change_status(queryset, status):
     """
     Изменение статуса файлов в API
     """
+    token = get_token()
     for item in queryset:
-        token = get_token()
         response = requests.post(
             url=f'{settings.API_URL}/api/files/status/{item.id}',
             params=f'status={status}',
