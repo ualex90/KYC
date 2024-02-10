@@ -9,7 +9,7 @@ class Command(BaseCommand):
     Cоздание пользователя для админ панели
     """
     def handle(self, *args, **kwargs):
-        if not User.objects.get(email=settings.DJANGO_ADMIN_EMAIL):
+        if not User.objects.filter(email=settings.DJANGO_ADMIN_EMAIL):
             user = User.objects.create(
                 email=settings.DJANGO_ADMIN_EMAIL,
                 first_name='Admin',
