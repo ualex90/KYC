@@ -8,8 +8,8 @@ class Command(BaseCommand):
     """
     Cоздание пользователя для админ панели
     """
-    if not User.objects.get(email=settings.DJANGO_ADMIN_EMAIL):
-        def handle(self, *args, **kwargs):
+    def handle(self, *args, **kwargs):
+        if not User.objects.get(email=settings.DJANGO_ADMIN_EMAIL):
             user = User.objects.create(
                 email=settings.DJANGO_ADMIN_EMAIL,
                 first_name='Admin',
@@ -21,6 +21,5 @@ class Command(BaseCommand):
             user.set_password(settings.DJANGO_ADMIN_PASSWORD)
             user.save()
             print("Создан пользователь Django ADMIN")
-    else:
-        def handle(self, *args, **kwargs):
+        else:
             print("Пользователь Django ADMIN уже существует")
